@@ -48,6 +48,26 @@ function getPower(value, powerValue) {
   return power;
 }
 
+function getRemainder(firstValue, secondValue) {
+  let remainder = firstValue % secondValue;
+  return remainder;
+}
+
+function compareNumbers(firstValue, secondValue) {
+  let parsedFirstValue = parseInt(firstValue);
+  let parsedSecondValue = parseInt(secondValue);
+
+  if (parsedFirstValue != parsedSecondValue) {
+    if (parsedFirstValue > parsedSecondValue) {
+      return parsedFirstValue;
+    } else if (parsedFirstValue < parsedSecondValue){
+      return parsedSecondValue;
+    } else {
+      return false;
+    }
+  }
+}
+
 function calculate() {
 
   let firstInput;
@@ -60,6 +80,7 @@ function calculate() {
   console.log("4- División");
   console.log("5- Raíz Cuadrada");
   console.log("6- Potencia");
+  console.log("7- Residuo");
 
   const option = question('Elige la opción deseada: ');
 
@@ -93,6 +114,11 @@ function calculate() {
       secondInput = getInput(2, 'power');
       result = getPower(firstInput, secondInput);
       break;
+    case "7":
+      firstInput = getInput(1, 'remainder');
+      secondInput = getInput(2, 'remainder');
+      result = getRemainder(firstInput, secondInput);
+      break
     default:
       console.log("Pon una opción chida mamón");
       return false;
