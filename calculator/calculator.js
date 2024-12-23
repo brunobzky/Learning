@@ -15,10 +15,12 @@ function getInput(call, operationType) {
       ordinalNumber = 'segundo';
     }
     const input = question('Ingresa el ' + ordinalNumber + ' número: ');
+
     return input;
   }
   else if (operationType == 'squareRoot') {
     const input = question('Ingresa el número: ');
+
     return input;
   }
 }
@@ -29,31 +31,48 @@ function showOutput(operationType, output) {
   switch (operationType) {
     case 'addition':
       message = 'El resultado de la suma es: ' + output;
+
       break;
+
     case 'substraction':
       message = 'El resultado de la resta es: ' + output;
+
       break;
+
     case 'multiplication':
       message = 'El resultado de la multiplicación es: ' + output;
+
       break;
+
     case 'division':
       message = 'El resultado de la división es: ' + output;
+
       break;
+
     case 'squareRoot':
       message = 'Su raíz cuadrada es: ' + output;
+
       break;
+
     case 'power':
       message = 'El resultado de la suma es: ' + output;
+
       break;
+
     case 'remainder':
       message = 'El residuo es: ' + output;
+
       break;
+
     case 'compare':
       message = 'El número mayor es: ' + output;
+
       break;
+
     default:
       message = 'resultado inesperado';
   }
+
   return message;
 }
 
@@ -109,6 +128,7 @@ function compareNumbers(firstValue, secondValue) {
     return parsedSecondValue;
   } else if (parsedFirstValue == parsedSecondValue) {
     let equivalent = parsedFirstValue;
+
     return equivalent;
   }
 }
@@ -116,6 +136,7 @@ function compareNumbers(firstValue, secondValue) {
 function exitProgram() {
   console.log('¡Hasta luego!');
   const exit = process.exit(1);
+
   return exit;
 }
 
@@ -145,52 +166,70 @@ async function calculate() {
         secondInput = getInput(2, 'addition');
         result = add(firstInput, secondInput);
         output = showOutput('addition', result);
+
         break;
+
       case '2':
         firstInput = getInput(1, 'substraction');
         secondInput = getInput(2, 'substraction');
         result = sustract(firstInput, secondInput);
         output = showOutput('substraction', result);
+
         break;
+
       case '3':
         firstInput = getInput(1, 'multiplication');
         secondInput = getInput(2, 'multiplication');
         result = multiply(firstInput, secondInput);
         output = showOutput('multiplication', result);
+
         break;
+
       case '4':
         firstInput = getInput(1, 'division');
         secondInput = getInput(2, 'division');
         result = divide(firstInput, secondInput);
         output = showOutput('division', result);
+
         break;
+
       case '5':
         firstInput = getInput(1, 'squareRoot');
         result = getSquareRoot(firstInput);
         output = showOutput('squareRoot', result);
+
         break;
+
       case '6':
         firstInput = getInput(1, 'power');
         secondInput = getInput(2, 'power');
         result = getPower(firstInput, secondInput);
         output = showOutput('power', result);
+
         break;
+
       case '7':
         firstInput = getInput(1, 'remainder');
         secondInput = getInput(2, 'remainder');
         result = getRemainder(firstInput, secondInput);
         output = showOutput('remainder', result);
+
         break;
+
       case '8':
         firstInput = getInput(1, 'compare');
         secondInput = getInput(2, 'compare');
         result = compareNumbers(firstInput, secondInput);
         output = showOutput('compare', result);
+
         break;
+
       case '9':
         exitProgram();
+
       default:
         console.log('Pon una opción chida mamón');
+
         return false;
     }
     console.log(output);
